@@ -1,0 +1,29 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "dislo-density"
+version = "0.1.0"
+description = "Dislocation density estimation from TEM images"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+  "numpy>=1.24",
+  "PyYAML>=6.0",
+  "tifffile>=2023.4.12",
+  "scikit-image>=0.20",
+  "scipy>=1.10",
+  "Flask>=2.3",
+  "Pillow>=9.0",
+]
+
+[project.scripts]
+dislo_density = "dislo_density.cli:main"
+dislo_density_web = "dislo_density.web.app:main"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
